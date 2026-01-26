@@ -1,0 +1,219 @@
+/* ---------------- Navbar Container ---------------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: #fff;
+  font-family: 'Inter', sans-serif;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: relative;
+  z-index: 1000;
+  height: 70px;
+}
+
+/* Logo */
+.nav-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #5d4e45;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+/* Menu Toggle (Hamburger) */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  color: #333;
+  z-index: 1002;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.nav-links li a:hover {
+  color: #d4a373;
+}
+
+/* ---------------- Search inside navbar links ---------------- */
+.search-link {
+  position: relative;
+}
+
+/* Search wrapper */
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 20px;
+  /* start width equals icon size */
+  transition: width 0.4s ease;
+}
+
+.search-wrapper.active {
+  width: 180px;
+  /* expanded width */
+}
+
+/* Search input */
+.search-input {
+  border: none;
+  outline: none;
+  background: #f2f2f2;
+  border-radius: 20px;
+  padding: 5px 10px 5px 30px;
+  /* space for icon */
+  width: 0;
+  opacity: 0;
+  transition: width 0.4s ease, opacity 0.4s ease;
+}
+
+.search-wrapper.active .search-input {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Search icon */
+.search-icon {
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+  color: #555;
+  transition: transform 0.4s ease, color 0.3s;
+}
+
+.search-wrapper.active .search-icon {
+  transform: translateX(160px);
+  /* icon slides right */
+  color: #d4a373;
+}
+
+/* Right-side icons */
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  z-index: 1002;
+}
+
+.icon-wrapper {
+  position: relative;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.icon-wrapper:hover {
+  color: #d4a373;
+}
+
+.badge .dot {
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  height: 8px;
+  width: 8px;
+  background-color: #e67e22;
+  border-radius: 50%;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    order: 1;
+    /* Left side */
+  }
+
+  .nav-logo {
+    order: 2;
+    /* Center or right */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .nav-icons {
+    order: 3;
+    /* Right side */
+  }
+
+  .nav-links {
+    position: fixed;
+    /* Fixed to stay on screen */
+    top: 70px;
+    /* Below navbar */
+    left: 0;
+    width: 250px;
+    /* Fixed side width */
+    height: calc(100vh - 70px);
+    background-color: #f9f9f9;
+    /* Distinct background */
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 40px;
+    align-items: flex-start;
+    padding-left: 20px;
+    gap: 25px;
+    transform: translateX(-100%);
+    /* Slide from left */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-links li a {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  /* Adjust search in mobile menu */
+  .search-wrapper {
+    width: 250px;
+    /* Fixed width for mobile entry */
+    border: 1px solid #eee;
+    border-radius: 25px;
+    padding: 5px;
+  }
+
+  .search-wrapper.active {
+    width: 250px;
+  }
+
+  .search-input {
+    width: 100%;
+    opacity: 1;
+    background: transparent;
+  }
+
+  .search-icon {
+    display: none;
+    /* Hide icon inside input, maybe use a button instead or keep it simply as input */
+  }
+
+  /* Or simplify search for mobile */
+  .search-link {
+    display: none;
+    /* Often cleaner to hide search in simple mobile menu or make it a separate top-level item */
+  }
+}

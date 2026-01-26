@@ -1,0 +1,132 @@
+.category-page {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-transform: capitalize;
+    color: #333;
+}
+
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    /* Slightly smaller min-width for 4 columns */
+    gap: 2rem 1.5rem;
+}
+
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-left: 45px;
+}
+
+.product-card {
+    background: transparent;
+    transition: transform 0.3s ease;
+    /* Removed border and shadow for cleaner look matching reference */
+}
+
+/* .product-card:hover {
+  transform: translateY(-5px);
+} */
+
+.product-image-container {
+    height: 280px;
+    /* Taller image area */
+    overflow: hidden;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0px;
+    /* Reduced margin */
+    border-radius: 8px;
+    padding: 0.5rem;
+    /* Reduced padding */
+    /* Slight roundness */
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+
+}
+
+.icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.icon-btn:hover {
+    color: #e91e63;
+}
+
+.product-info2 {
+    padding: 0 0.5rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 5px;
+    /* Slight gap from image */
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.1rem;
+    /* Tighter spacing */
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-price {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.price-label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.product-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.no-products {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    grid-column: 1 / -1;
+}
