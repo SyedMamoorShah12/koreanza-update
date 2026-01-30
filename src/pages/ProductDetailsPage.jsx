@@ -9,6 +9,8 @@ const ProductDetailsPage = () => {
     const { productId } = useParams();
     const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1);
+    const [isDescExpanded, setIsDescExpanded] = useState(false);
+    const [isHowExpanded, setIsHowExpanded] = useState(false);
     const { addToCart, addToWishlist, isInWishlist } = useShop();
 
     const product = products.find(p => p.id === parseInt(productId));
@@ -56,6 +58,9 @@ const ProductDetailsPage = () => {
 
                     <div className="product-price-row">
                         <span className="price-label">Price</span>
+                        {product.originalPrice && (
+                            <span className="original-price">{product.originalPrice}</span>
+                        )}
                         <span className="price-value">{product.price}</span>
                     </div>
 
@@ -65,12 +70,28 @@ const ProductDetailsPage = () => {
                         ))}
                     </div>
 
+                    {/* Stock Status */}
+                    <div className="stock-status">
+                        {product.stock > 0 ? (
+                            <span className="in-stock">In stock: {product.stock} items available</span>
+                        ) : (
+                            <span className="out-of-stock">Out of stock</span>
+                        )}
+                    </div>
+
+                    {/* Product Meta Section */}
+                    <div className="product-meta-details">
+                        {product.finish && <div className="meta-item"><span className="meta-label">Finish:</span> <span className="meta-value">{product.finish}</span></div>}
+                        {product.skinType && <div className="meta-item"><span className="meta-label">Skin Type:</span> <span className="meta-value">{product.skinType}</span></div>}
+                        {product.benefits && <div className="meta-item"><span className="meta-label">Benefits:</span> <span className="meta-value">{product.benefits}</span></div>}
+                    </div>
+
                     <div className="product-quantity-section">
                         <span className="quantity-label">Quantity:</span>
                         <div className="quantity-selector">
-                            <button onClick={() => handleQuantityChange('decrease')}><Minus size={16} /></button>
+                            <button onClick={() => handleQuantityChange('decrease')} disabled={product.stock === 0}><Minus size={16} /></button>
                             <span>{quantity}</span>
-                            <button onClick={() => handleQuantityChange('increase')}><Plus size={16} /></button>
+                            <button onClick={() => handleQuantityChange('increase')} disabled={product.stock === 0 || quantity >= product.stock}><Plus size={16} /></button>
                         </div>
                     </div>
 
@@ -78,12 +99,16 @@ const ProductDetailsPage = () => {
                         <button
                             className="buy-now-btn"
                             onClick={() => navigate("/checkout", { state: { product: { ...product, quantity } } })}
+                            disabled={product.stock === 0}
+                            style={product.stock === 0 ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
                         >
                             Buy Now
                         </button>
                         <button
                             className="add-to-cart-btn"
                             onClick={() => addToCart({ ...product, quantity })}
+                            disabled={product.stock === 0}
+                            style={product.stock === 0 ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
                         >
                             Add to Cart
                         </button>
@@ -91,12 +116,41 @@ const ProductDetailsPage = () => {
 
                     <div className="product-description-section">
                         <h3>Details :</h3>
-                        <p>{product.description}</p>
-                        <p className="lorem-text">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                        <p
+                            style={{ whiteSpace: 'pre-wrap' }}
+                            className={!isDescExpanded ? 'truncated-text' : ''}
+                        >
+                            {product.description}
                         </p>
+                        {product.description && product.description.length > 100 && (
+                            <button
+                                className="read-more-btn"
+                                onClick={() => setIsDescExpanded(!isDescExpanded)}
+                            >
+                                {isDescExpanded ? 'Read less' : 'Read more'}
+                            </button>
+                        )}
                     </div>
+
+                    {product.howToUse && (
+                        <div className="product-description-section">
+                            <h3>How to use :</h3>
+                            <p
+                                style={{ whiteSpace: 'pre-wrap' }}
+                                className={!isHowExpanded ? 'truncated-text' : ''}
+                            >
+                                {product.howToUse}
+                            </p>
+                            {product.howToUse.length > 100 && (
+                                <button
+                                    className="read-more-btn"
+                                    onClick={() => setIsHowExpanded(!isHowExpanded)}
+                                >
+                                    {isHowExpanded ? 'Read less' : 'Read more'}
+                                </button>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -138,6 +192,9 @@ const ProductDetailsPage = () => {
                                 <h3>{item.name}</h3>
                                 <div className="pairing-price-row">
                                     <span className="price-label">Price</span>
+                                    {item.originalPrice && (
+                                        <span className="original-price" style={{ textDecoration: 'line-through', color: '#999', fontSize: '0.8em', marginRight: '5px' }}>{item.originalPrice}</span>
+                                    )}
                                     <span className="price-value">{item.price}</span>
                                 </div>
                                 <div className="pairing-rating">

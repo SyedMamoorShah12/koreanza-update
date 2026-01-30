@@ -116,7 +116,17 @@ const CartTable = () => {
         </tbody>
       </table>
 
-
+      {cartItems.length > 0 && (
+        <div className="cart-footer">
+          <div className="cart-total">
+            <span>Subtotal:</span>
+            <span className="total-price">Rs {subtotal}</span>
+          </div>
+          <button className="checkout-btn" onClick={checkoutAll}>
+            Proceed to Checkout
+          </button>
+        </div>
+      )}
     </div>
   );
 };

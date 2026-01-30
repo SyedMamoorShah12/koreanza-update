@@ -4,6 +4,7 @@ import { Search, User, Heart, ShoppingCart, Menu, X } from "lucide-react";
 import "./Navbar.css";
 
 import { useShop } from "../context/ShopContext";
+import logo from "../assets/Images/koreanza_logo.jpg";
 
 const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -14,7 +15,9 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="nav-logo">MyBrand</div>
+      <Link to="/" className="nav-logo">
+        <img src={logo} alt="Koreanza Logo" className="logo-img" />
+      </Link>
 
       <div className="menu-toggle" onClick={() => setSearchOpen(false) || setMobileMenuOpen(!mobileMenuOpen)}>
         {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}

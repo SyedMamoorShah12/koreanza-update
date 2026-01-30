@@ -39,7 +39,7 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.35s ease;
- 
+
 }
 
 .product-card:hover {
@@ -70,6 +70,8 @@
   object-fit: contain;
   /* Ensure full image visibility */
   transition: transform 0.4s ease;
+  mix-blend-mode: multiply;
+  /* Simulates transparent background on white */
 }
 
 .product-card:hover .product-image {
@@ -126,10 +128,10 @@
 @media (max-width: 900px) {
   .product-grid {
     flex-wrap: wrap;
-    
-     /* align-items: center; */
-     justify-content: center;
-     /* margin-left: 0px; */
+
+    /* align-items: center; */
+    justify-content: center;
+    /* margin-left: 0px; */
   }
 
   .product-card {

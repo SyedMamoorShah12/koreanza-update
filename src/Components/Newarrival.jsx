@@ -1,7 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useShop } from "../context/ShopContext";
 
 // import img from "../assets/Images/img1.jpg";
-import img2 from "../assets/Images/4.jpg";
+import skinCoverImg from "../assets/Images/skincaree/cover.png";
+import lipShadesImg from "../assets/Images/lip/shades.jpeg";
+import faceWashHydroImg from "../assets/Images/skincaree/jas_perfect_facewash__2_.png";
+import glowCreamImg from "../assets/Images/face/peachmnu_glow_cream-removebg-preview.png";
+import lipSerumBlueImg from "../assets/Images/lip/cleaderm lip serum milky blue.jpg";
+import hyaluronMaskImg from "../assets/Images/skincaree/hydration.png";
 
 /* FIRST ROW */
 // const trendingProducts = [
@@ -13,13 +20,11 @@ import img2 from "../assets/Images/4.jpg";
 
 /* SECOND ROW */
 const topBeautyProducts = [
-  { id: 5, name: "Nails Polish", price: "2999", image: img2 },
-  { id: 6, name: "Jas Perfect Foam", price: "3499", image: img2 },
-  { id: 7, name: "Glow Cream", price: "2499", image: img2 },
-  { id: 8, name: "Glow Cream", price: "2499", image: img2 },
+  { id: 21, name: "Hyaluronic Acid Mask", price: "350", image: hyaluronMaskImg },
+  { id: 26, name: "Jas Perfect Foam - Hydro", price: "1850", image: faceWashHydroImg },
+  { id: 8, name: "Peachmanu Glow Cream", price: "3200", image: glowCreamImg },
+  { id: 10, name: "Cleaderm Lip Serum - Milky Blue", price: "1200", image: lipSerumBlueImg },
 ];
-
-import { useShop } from "../context/ShopContext";
 
 const ProductGrid = ({ products }) => {
   const { addToCart, addToWishlist, isInWishlist } = useShop();
@@ -28,15 +33,20 @@ const ProductGrid = ({ products }) => {
     <div className="product-grid">
       {products.map((product) => (
         <div key={product.id} className="product-card">
-          <div className="product-image-wrapper">
-            <img src={product.image} alt={product.name} className="product-image" />
-          </div>
+          <Link to={`/product/${product.id}`} className="product-card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="product-image-wrapper">
+              <img src={product.image} alt={product.name} className="product-image" />
+            </div>
+          </Link>
 
           <div className="action-bar">
             {/* Wishlist */}
             <button
               className="icon-btn"
-              onClick={() => addToWishlist(product)}
+              onClick={(e) => {
+                e.stopPropagation();
+                addToWishlist(product);
+              }}
               style={{ color: isInWishlist(product.id) ? 'red' : 'inherit' }}
             >
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill={isInWishlist(product.id) ? "red" : "none"} strokeWidth="2">
@@ -45,7 +55,13 @@ const ProductGrid = ({ products }) => {
             </button>
 
             {/* Cart */}
-            <button className="icon-btn" onClick={() => addToCart(product)}>
+            <button
+              className="icon-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                addToCart(product);
+              }}
+            >
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2">
                 <circle cx="9" cy="21" r="1" />
                 <circle cx="20" cy="21" r="1" />
@@ -54,25 +70,27 @@ const ProductGrid = ({ products }) => {
             </button>
           </div>
 
-          <div className="product-info2">
-            <h3 className="product-name">{product.name}</h3>
-            <p className="product-price">
-              Rs. {Number(product.price).toLocaleString()}
-            </p>
+          <Link to={`/product/${product.id}`} className="product-card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="product-info2">
+              <h3 className="product-name">{product.name}</h3>
+              <p className="product-price">
+                Rs. {Number(product.price).toLocaleString()}
+              </p>
 
-            <div className="stars">
-              {"★★★★★".split("").map((_, i) => (
-                <span key={i}>★</span>
-              ))}
+              <div className="stars">
+                {"★★★★★".split("").map((_, i) => (
+                  <span key={i}>★</span>
+                ))}
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       ))}
     </div>
   );
 };
 
-const TrendingItems = () => {
+const Newarrival = () => {
   return (
     <section className="trending-container">
       {/* ROW 1 */}
@@ -86,4 +104,4 @@ const TrendingItems = () => {
   );
 };
 
-export default TrendingItems;
+export default Newarrival;

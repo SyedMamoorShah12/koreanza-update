@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -12,9 +13,17 @@ const Footer = () => {
             <input type="email" placeholder="Enter Your Email Address" />
           </div>
           <div className="social-icons">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X" className="x-logo" />
+            <a href="https://www.instagram.com/koreanzaa?igsh=MWltNGowZmQ4b2JyZg==" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" />
+            </a>
+            <a href="https://www.facebook.com/share/1bwxwVyPYn/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook" />
+            </a>
+            <a href="https://www.tiktok.com/@koreanza_official?_r=1&_t=ZS-93RvTLPR9fN" target="_blank" rel="noopener noreferrer" className="social-icon-link">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1 .05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z" />
+              </svg>
+            </a>
           </div>
           <div className="payment-icons">
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" />
@@ -28,35 +37,31 @@ const Footer = () => {
           <div className="footer-section">
             <h4 className="column-title">shop</h4>
             <ul>
-              <li>All Products</li>
-              <li>New Arrivals</li>
-              <li>Shop By Categories</li>
-              <li>Trending items</li>
-              <li>New arrival</li>
-              <li>All products</li>
+              <li><Link to="/category/all">All Products</Link></li>
+              <li><Link to="/category/all">New Arrivals</Link></li>
+              <li><Link to="/">Shop By Categories</Link></li>
+              <li><Link to="/category/all">Trending items</Link></li>
             </ul>
           </div>
 
           <div className="footer-section">
             <h4 className="column-title">Customer Support</h4>
             <ul>
-              <li>Contact Us</li>
-              <li>Help Center</li>
-              <li>Order Tracking</li>
-              <li>Returns & Refunds</li>
+              <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="/contact">Help Center</Link></li>
+              <li><Link to="/cart">Order Tracking</Link></li>
+              <li><Link to="/contact">Returns & Refunds</Link></li>
             </ul>
           </div>
-
-
 
           <div className="footer-section">
             <h4 className="column-title">Account</h4>
             <ul>
-              <li>Privacy Policy</li>
-              <li>Terms & Conditions</li>
-              <li>Shipping Policy</li>
-              <li>Return Policy</li>
-              <li>Cancellation Policy</li>
+              <li><Link to="/">Privacy Policy</Link></li>
+              <li><Link to="/">Terms & Conditions</Link></li>
+              <li><Link to="/">Shipping Policy</Link></li>
+              <li><Link to="/">Return Policy</Link></li>
+              <li><Link to="/">Cancellation Policy</Link></li>
             </ul>
           </div>
 

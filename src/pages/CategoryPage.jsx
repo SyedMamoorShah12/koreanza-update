@@ -10,14 +10,16 @@ const CategoryPage = () => {
     const { categoryName } = useParams();
     const { addToCart, addToWishlist, isInWishlist } = useShop();
 
-    // Filter products by category (case insensitive)
-    const categoryProducts = products.filter(
-        (product) => product.category.toLowerCase() === categoryName?.toLowerCase()
-    );
+    // Filter products by category (case insensitive), or show all if "all"
+    const categoryProducts = categoryName?.toLowerCase() === 'all'
+        ? products
+        : products.filter((product) => product.category.toLowerCase() === categoryName?.toLowerCase());
 
     return (
         <div className="category-page">
-            <h1 className="page-title">{categoryName} Collection</h1>
+            <h1 className="page-title">
+                {categoryName?.toLowerCase() === 'all' ? 'All Products' : `${categoryName} Collection`}
+            </h1>
 
             {categoryProducts.length === 0 ? (
                 <p className="no-products">No products found in this category.</p>
@@ -56,6 +58,11 @@ const CategoryPage = () => {
                                     </div>
                                     <div className="product-info2">
                                         <h3 className="product-name">{product.name}</h3>
+                                        {product.benefits && <p className="product-benefits">{product.benefits}</p>}
+                                        <div className="product-meta">
+                                            {product.skinType && <span className="meta-tag">{product.skinType}</span>}
+                                            {product.finish && <span className="meta-tag">{product.finish}</span>}
+                                        </div>
                                         <p className="product-price">
                                             <span className="price-label">Price</span> {product.price}
                                         </p>

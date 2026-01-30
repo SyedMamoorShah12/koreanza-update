@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
 import './CategorySection.css';
-import img1 from '../assets/Images/1.jpg'
-import img2 from '../assets/Images/2.jpg'
-import img3 from '../assets/Images/3.jpg'
-import img4 from '../assets/Images/4.jpg'
+import eyes from '../assets/Images/Eye/cover-removebg-preview.png'
+import lips from '../assets/Images/lip/cove.jpg'
+import face from '../assets/Images/face/cover-removebg-preview.png'
+import skincare from '../assets/Images/skincaree/tea_tree-removebg-preview.png'
 
 const categories = [
-  { id: 1, name: 'Cosmetics', img: img1 },
-  { id: 2, name: 'Perfume', img: img2},
-  { id: 3, name: 'Beauty', img: img3 },
-  { id: 4, name: 'Other', img: img4 },
+  { id: 1, name: 'Eyes Products', img: eyes },
+  { id: 2, name: 'Lip Products', img: lips },
+  { id: 3, name: 'Face Products', img: face },
+  { id: 4, name: 'Skincare', img: skincare },
 ];
 
 const CategorySection = () => {

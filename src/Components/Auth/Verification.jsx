@@ -1,6 +1,6 @@
 import React from "react";
 import AuthLayout from "./AuthLayout";
-import img from "../../assets/Images/login.png";
+import img from "../../assets/Images/face/cover-removebg-preview.png";
 
 const Verification = ({ onSwitch, onNext }) => {
   const handleVerify = () => {

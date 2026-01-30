@@ -7,20 +7,22 @@
 
 .slider-wrapper {
   position: relative;
-  width: 95%;
-  max-width: 1200px;
-  height: 450px;
+  width: 100%;
+  max-width: 1400px;
+  height: 500px;
   border-radius: 15px;
   overflow: hidden;
   /* Clips the other 4 images */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: #fff9f9;
+  /* Soft background for transparent images */
 }
 
 @media (max-width: 768px) {
   .slider-wrapper {
     height: 300px;
   }
-  
+
 
   .slider-shop-btn {
     bottom: 40px;
@@ -57,6 +59,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 /* Shop Now Button - Positioned exactly as per design */
@@ -71,7 +74,7 @@
   padding: 12px 35px;
   font-weight: bold;
   font-size: 1.1rem;
- 
+
   cursor: pointer;
   z-index: 5;
   transition: transform 0.2s;
@@ -133,23 +136,22 @@
 }
 
 
-@media (max-width: 768px){
-.slider-shop-btn {
-  position: absolute;
-  bottom: 40px;
-  left: 60px;
+@media (max-width: 768px) {
+  .slider-shop-btn {
+    position: absolute;
+    bottom: 40px;
+    left: 60px;
 
-  /* Neon yellow from image */
-  color: #8b0000;
-  border: none;
-  margin-left: 15px;
-  padding: 12px 25px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  border-radius: 30px;
-  cursor: pointer;
-  z-index: 5;
-  /* transition: transform 0.2s; */
+    /* Neon yellow from image */
+    color: #8b0000;
+    border: none;
+    margin-left: 15px;
+    padding: 12px 25px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 5;
+    /* transition: transform 0.2s; */
+  }
 }
-}
-

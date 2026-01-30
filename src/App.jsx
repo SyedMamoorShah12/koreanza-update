@@ -17,10 +17,12 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 import Checkout from "./pages/Checkout";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ScrollToTop from "./Components/ScrollToTop";
 
 export default function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored" />
 
@@ -88,9 +90,9 @@ export default function App() {
         <Route path="/auth" element={<Auth />} />
 
         {/* SHOP ROUTES */}
-        <Route path="/category/:categoryName" element={<CategoryPage />} />
-        <Route path="/product/:productId" element={<ProductDetailsPage />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/category/:categoryName" element={<><CategoryPage /><Footer /></>} />
+        <Route path="/product/:productId" element={<><ProductDetailsPage /><Footer /></>} />
+        <Route path="/checkout" element={<><Checkout /><Footer /></>} />
       </Routes>
     </>
   );

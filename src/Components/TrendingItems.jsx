@@ -1,26 +1,34 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./TrendingItems.css";
-import img from "../assets/Images/3.jpg";
-import img2 from "../assets/Images/4.jpg";
-import img3 from "../assets/Images/2.jpg";
+import { useShop } from "../context/ShopContext";
+
+import img from "../assets/Images/skincaree/skincare-removebg-preview.png";
+import glowCreamImg from "../assets/Images/face/peachmnu_glow_cream-removebg-preview.png";
+import eyeCoverImg from "../assets/Images/Eye/cover-removebg-preview.png";
+import wrinkleCreamImg from "../assets/Images/face/wrinkle_cream-removebg-preview.png";
+import foundationImg from "../assets/Images/face/peachmanu_foundation-removebg-preview.png";
+import faceWashImg from "../assets/Images/skincaree/jas_perfect_face_wash.png";
+import lipShadesImg from "../assets/Images/lip/shades.jpeg";
+import lipGlowSerumImg from "../assets/Images/lip/peachmanu glow lip serum.jpg";
+import eyeShimmerImg from "../assets/Images/Eye/twoedit_eye_shimmer_1-removebg-preview.png";
+import faceWashCollagenImg from "../assets/Images/skincaree/jas_perfect_face_wash__2.png";
 
 /* FIRST ROW */
 const trendingProducts = [
-  { id: 1, name: "Firming Face Cream", price: "3999", image: img2 },
-  { id: 2, name: "Peachmanu", price: "3999", image: img3 },
-  { id: 3, name: "CINDERELLA", price: "3999", image: img2 },
-  { id: 4, name: "Cleaderm", price: "3999", image: img },
+  { id: 9, name: "Firming Face Cream", price: "2999", image: wrinkleCreamImg },
+  { id: 7, name: "Peachmanu Foundation", price: "4500", image: foundationImg },
+  { id: 24, name: "Jas Perfect Foam", price: "1850", image: faceWashImg },
+  { id: 12, name: "Peachmanu Glow Lip Serum", price: "1400", image: lipGlowSerumImg },
 ];
 
 /* SECOND ROW */
 const topBeautyProducts = [
-  { id: 5, name: "Nails Polish", price: "2999", image: img2 },
-  { id: 6, name: "Jas Perfect Foam", price: "3499", image: img },
-  { id: 7, name: "Glow Cream", price: "2499", image: img2 },
-  { id: 8, name: "Glow Cream", price: "2499", image: img3 },
+  { id: 30, name: "Lip Shades Palette", price: "2500", image: lipShadesImg },
+  { id: 23, name: "Jas Perfect Foam - Collagen", price: "1850", image: faceWashCollagenImg },
+  { id: 8, name: "Glow Cream", price: "3200", image: glowCreamImg },
+  { id: 5, name: "Twoedit Eye Shimmer", price: "1500", image: eyeShimmerImg },
 ];
-
-import { useShop } from "../context/ShopContext";
 
 const ProductGrid = ({ products }) => {
   const { addToCart, addToWishlist, isInWishlist } = useShop();
@@ -29,15 +37,20 @@ const ProductGrid = ({ products }) => {
     <div className="product-grid">
       {products.map((product) => (
         <div key={product.id} className="product-card">
-          <div className="product-image-wrapper">
-            <img src={product.image} alt={product.name} className="product-image" />
-          </div>
+          <Link to={`/product/${product.id}`} className="product-card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="product-image-wrapper">
+              <img src={product.image} alt={product.name} className="product-image" />
+            </div>
+          </Link>
 
           <div className="action-bar">
             {/* Wishlist */}
             <button
               className="icon-btn"
-              onClick={() => addToWishlist(product)}
+              onClick={(e) => {
+                e.stopPropagation();
+                addToWishlist(product);
+              }}
               style={{ color: isInWishlist(product.id) ? 'red' : 'inherit' }}
             >
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill={isInWishlist(product.id) ? "red" : "none"} strokeWidth="2">
@@ -46,7 +59,13 @@ const ProductGrid = ({ products }) => {
             </button>
 
             {/* Cart */}
-            <button className="icon-btn" onClick={() => addToCart(product)}>
+            <button
+              className="icon-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                addToCart(product);
+              }}
+            >
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2">
                 <circle cx="9" cy="21" r="1" />
                 <circle cx="20" cy="21" r="1" />
@@ -55,18 +74,20 @@ const ProductGrid = ({ products }) => {
             </button>
           </div>
 
-          <div className="product-info2">
-            <h3 className="product-name">{product.name}</h3>
-            <p className="product-price">
-              Rs. {Number(product.price).toLocaleString()}
-            </p>
+          <Link to={`/product/${product.id}`} className="product-card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="product-info2">
+              <h3 className="product-name">{product.name}</h3>
+              <p className="product-price">
+                Rs. {Number(product.price).toLocaleString()}
+              </p>
 
-            <div className="stars">
-              {"★★★★★".split("").map((_, i) => (
-                <span key={i}>★</span>
-              ))}
+              <div className="stars">
+                {"★★★★★".split("").map((_, i) => (
+                  <span key={i}>★</span>
+                ))}
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       ))}
     </div>
