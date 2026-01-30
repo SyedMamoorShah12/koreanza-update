@@ -22,7 +22,16 @@ const Checkout = () => {
         }
     }, [location.state, cartItems]);
 
-    const subtotal = orderItems.reduce((acc, item) => acc + (Number(item.price) * (item.quantity || 1)), 0);
+    // Helper to parse price string like "Rs 2999" to number 2999
+    const parsePrice = (price) => {
+        if (typeof price === 'number') return price;
+        if (!price) return 0;
+        // Remove all non-numeric characters except dot
+        const cleanPrice = String(price).replace(/[^0-9.]/g, '');
+        return Number(cleanPrice) || 0;
+    };
+
+    const subtotal = orderItems.reduce((acc, item) => acc + (parsePrice(item.price) * (item.quantity || 1)), 0);
     const shipping = 60; // Hardcoded
     const total = subtotal + shipping;
 
@@ -153,7 +162,7 @@ const Checkout = () => {
                                 </div>
                                 <div className="summary-details">
                                     <p className="summary-name">{item.name}</p>
-                                    <p className="summary-price">RS {item.price}</p>
+                                    <p className="summary-price">RS {parsePrice(item.price)}</p>
                                 </div>
                             </div>
                         ))}

@@ -33,8 +33,7 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .category-page {
-        padding: 2rem 0.5rem;
-        /* Reduced padding */
+        padding: 2rem 1rem;
     }
 
     .page-title {
@@ -52,41 +51,29 @@
     }
 
     .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* Force 2 columns on mobile/tablet */
-        gap: 0.5rem;
-        /* Reduced gap */
+        grid-template-columns: 1fr;
+        /* Single column */
+        gap: 2rem;
+        /* More vertical space */
         justify-content: center;
-        /* Center grid content */
         justify-items: center;
-        /* Center items inside the grid cells */
     }
 
     .product-card-link {
         margin: 0 auto;
         width: 100%;
-        max-width: 100%;
-        /* Allow full width */
+        max-width: 340px;
+        /* Limit width for single column */
     }
 
     .product-image-container {
-        height: 180px;
-        /* Adjusted height */
+        height: 300px;
+        /* Fixed height for consistency */
+        width: 100%;
     }
 }
 
-@media (max-width: 480px) {
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* Keep 2 columns even on small screens */
-        gap: 0.5rem;
-    }
-
-    .product-image-container {
-        height: 250px;
-        /* Taller for single column */
-    }
-}
+/* 480px breakpoint removed as single column is now default for mobile */
 
 
 .product-card {
@@ -127,8 +114,12 @@
 .product-actions {
     display: flex;
     justify-content: space-between;
-    padding: 0 0.5rem;
-
+    padding: 10px 14px;
+    /* Match front page padding */
+    background-color: #f2f2f2;
+    /* Match front page grey */
+    margin-top: 10px;
+    /* Add spacing from image */
 }
 
 .icon-btn {

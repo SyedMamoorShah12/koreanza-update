@@ -7,6 +7,15 @@ const CartTable = () => {
   const { cartItems, removeFromCart, updateQuantity } = useShop();
   const navigate = useNavigate();
 
+  // Helper to parse price string like "Rs 2999" to number 2999
+  const parsePrice = (price) => {
+    if (typeof price === 'number') return price;
+    if (!price) return 0;
+    // Remove all non-numeric characters except dot
+    const cleanPrice = String(price).replace(/[^0-9.]/g, '');
+    return Number(cleanPrice) || 0;
+  };
+
   // ➕ Increase quantity
   const increaseQty = (id, currentQty) => {
     updateQuantity(id, currentQty + 1);
@@ -34,7 +43,7 @@ const CartTable = () => {
     navigate("/checkout", { state: { fromCart: true } });
   }
 
-  const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+  const subtotal = cartItems.reduce((acc, item) => acc + (parsePrice(item.price) * item.quantity), 0);
 
   return (
     <div className="cart-container">
@@ -71,7 +80,7 @@ const CartTable = () => {
                   </div>
                 </td>
 
-                <td className="price-cell">Rs {item.price}</td>
+                <td className="price-cell">Rs {parsePrice(item.price)}</td>
 
                 <td className="quantity-cell">
                   <div className="quantity-stepper">
@@ -92,7 +101,7 @@ const CartTable = () => {
                 </td>
 
                 <td className="total-cell">
-                  Rs {Number(item.price) * item.quantity}
+                  Rs {parsePrice(item.price) * item.quantity}
                 </td>
 
                 <td className="actions-cell">
