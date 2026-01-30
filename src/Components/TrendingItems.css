@@ -141,21 +141,19 @@
 
 @media (max-width: 600px) {
   .product-grid {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
-    /* Tighter gap */
+    justify-content: center;
   }
 
   .product-card {
-    flex: 0 0 calc(50% - 10px);
-    /* 2 columns */
     min-height: auto;
-    /* Allow flexible height */
+    width: 100%;
   }
 
   .product-image-wrapper {
     height: 180px;
-    /* Reduced height for mobile */
   }
 
   .action-bar {
