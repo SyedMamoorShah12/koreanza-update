@@ -9,7 +9,7 @@ import eyeCoverImg from "../assets/Images/Eye/cover-removebg-preview.png";
 import wrinkleCreamImg from "../assets/Images/face/wrinkle_cream-removebg-preview.png";
 import foundationImg from "../assets/Images/face/peachmanu_foundation-removebg-preview.png";
 import faceWashImg from "../assets/Images/skincaree/jas_perfect_face_wash.png";
-import lipShadesImg from "../assets/Images/lip/shades.jpeg";
+import lipShadesImg from "../assets/Images/lip/Tag.jpg";
 import lipGlowSerumImg from "../assets/Images/lip/peachmanu glow lip serum.jpg";
 import eyeShimmerImg from "../assets/Images/Eye/twoedit_eye_shimmer_1-removebg-preview.png";
 import faceWashCollagenImg from "../assets/Images/skincaree/jas_perfect_face_wash__2.png";

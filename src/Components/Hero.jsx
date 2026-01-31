@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Hero.css';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import img1 from '../assets/Images/sheet_mask_banner.jpg'
-import img2 from '../assets/Images/acne_foam_banner.jpg'
-import img3 from '../assets/Images/white_foam_banner.jpg'
-import slider1 from '../assets/Images/slider1.jpeg'
+import img1 from '../assets/Images/slider2.png'
+import img2 from '../assets/Images/slider5.png'
+import img3 from '../assets/Images/slider4.png'
+import slider1 from '../assets/Images/slider1.png'
 
 const HeroSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -68,16 +68,16 @@ const Footer = () => {
           <div className="footer-section">
             <h4 className="column-title">Contact Information</h4>
             <ul>
-              <li>+92 XXX XXXXXXX</li>
-              <li>support@yourstore.com</li>
-              <li>Your City, Your Country</li>
+              <li>+92 300 1234567</li>
+              <li>koreanzaa@gmail.com</li>
+              <li>Pakistan</li>
             </ul>
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>© 2025 YourStore. All rights reserved.</p>
+        <p>© 2025 Koreanza. All rights reserved.</p>
       </div>
     </footer>
   );

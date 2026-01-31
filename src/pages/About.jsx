@@ -39,7 +39,7 @@ const BeautyLanding = () => {
 
             {/* Why Korea Section */}
             <section className="section-why">
-              <h2>Why Korea?</h2>
+              <h2>Why Koreaza?</h2>
               <ul>
                 <li>Advanced Skincare research hub.</li>
                 <li>Focus on hydration, skin barrier & long-term health.</li>

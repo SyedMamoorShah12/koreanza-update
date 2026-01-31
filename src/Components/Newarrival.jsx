@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useShop } from "../context/ShopContext";
+import "./TrendingItems.css";
+import "./Newarrival.css";
 
 // import img from "../assets/Images/img1.jpg";
 import skinCoverImg from "../assets/Images/skincaree/cover.png";

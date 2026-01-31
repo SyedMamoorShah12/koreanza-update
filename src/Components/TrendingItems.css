@@ -11,7 +11,7 @@
   margin: 80px auto;
   padding: 0 20px;
   font-family: "Segoe UI", Roboto, sans-serif;
-}
+} 
 
 /* Headings */
 .section-title {
@@ -157,6 +157,15 @@
   }
 
   .action-bar {
-    padding: 8px;
+    padding: 8px 10px;
   }
+}/* FIX icon cutting on small iPhones */
+.action-bar {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}.product-card {
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
