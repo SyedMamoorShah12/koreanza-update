@@ -5,8 +5,8 @@ import "./TrendingItems.css";
 import "./Newarrival.css";
 
 // import img from "../assets/Images/img1.jpg";
-import skinCoverImg from "../assets/Images/skincaree/cover.png";
-import lipShadesImg from "../assets/Images/lip/shades.jpeg";
+
+
 import faceWashHydroImg from "../assets/Images/skincaree/jas_perfect_facewash__2_.png";
 import glowCreamImg from "../assets/Images/face/peachmnu_glow_cream-removebg-preview.png";
 import lipSerumBlueImg from "../assets/Images/lip/cleaderm lip serum milky blue.jpg";
@@ -22,7 +22,7 @@ import hyaluronMaskImg from "../assets/Images/skincaree/hydration.png";
 
 /* SECOND ROW */
 const topBeautyProducts = [
-  { id: 21, name: "Hyaluronic Acid Mask", price: "350", image: hyaluronMaskImg },
+  { id: 21, name: "Hyaluronic Acid Mask", price: "899", image: hyaluronMaskImg },
   { id: 26, name: "Jas Perfect Foam - Hydro", price: "1850", image: faceWashHydroImg },
   { id: 8, name: "Peachmanu Glow Cream", price: "3200", image: glowCreamImg },
   { id: 10, name: "Cleaderm Lip Serum - Milky Blue", price: "1200", image: lipSerumBlueImg },

@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import aboutImg from "../assets/Images/About.jpg";
+import aboutImg from "../assets/Images/About.png";
 const BeautyLanding = () => {
   return (
     <div className="container">

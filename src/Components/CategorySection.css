@@ -8,7 +8,7 @@
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 50px;
-  color: #000;
+  color: var(--peach-text);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -47,13 +47,13 @@
 }
 
 .category-name {
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: #333;
-  font-family: Arial, Helvetica, sans-serif;
-
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--peach-text); /* deep neutral for premium look */
+  font-family: "Poppins", "Inter", system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
 }
-
 /* Mobile Responsiveness */
 /* Mobile Responsiveness */
 @media (max-width: 900px) {

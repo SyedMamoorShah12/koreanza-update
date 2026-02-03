@@ -2,15 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./TrendingItems.css";
 import { useShop } from "../context/ShopContext";
-
+import facenew from '../assets/Images/face/new.jpeg';
 import img from "../assets/Images/skincaree/skincare-removebg-preview.png";
-import glowCreamImg from "../assets/Images/face/peachmnu_glow_cream-removebg-preview.png";
+import glowCreamImg from "../assets/Images/face/facenew3.jpeg";
 import eyeCoverImg from "../assets/Images/Eye/cover-removebg-preview.png";
 import wrinkleCreamImg from "../assets/Images/face/wrinkle_cream-removebg-preview.png";
 import foundationImg from "../assets/Images/face/peachmanu_foundation-removebg-preview.png";
 import faceWashImg from "../assets/Images/skincaree/jas_perfect_face_wash.png";
 import lipShadesImg from "../assets/Images/lip/Tag.jpg";
 import lipGlowSerumImg from "../assets/Images/lip/peachmanu glow lip serum.jpg";
+import lipnew from "../assets/Images/lip/lipnew.jpeg";
 import eyeShimmerImg from "../assets/Images/Eye/twoedit_eye_shimmer_1-removebg-preview.png";
 import faceWashCollagenImg from "../assets/Images/skincaree/jas_perfect_face_wash__2.png";
 
@@ -19,7 +20,7 @@ const trendingProducts = [
   { id: 9, name: "Firming Face Cream", price: "2999", image: wrinkleCreamImg },
   { id: 7, name: "Peachmanu Foundation", price: "4500", image: foundationImg },
   { id: 24, name: "Jas Perfect Foam", price: "1850", image: faceWashImg },
-  { id: 12, name: "Peachmanu Glow Lip Serum", price: "1400", image: lipGlowSerumImg },
+  { id: 12, name: "Peachmanu Glow Lip Serum", price: "1400", image: lipnew },
 ];
 
 /* SECOND ROW */

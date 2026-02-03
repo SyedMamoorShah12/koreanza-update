@@ -26,6 +26,7 @@ import lipShades from '../assets/Images/lip/Tag.jpg';
 
 // Skincare Products
 import skinAloe from '../assets/Images/skincaree/alove.png';
+
 import skinCollagen from '../assets/Images/skincaree/collagn.png';
 import skinCucumber from '../assets/Images/skincaree/cucumber.png';
 import skinHoney from '../assets/Images/skincaree/face_mask_honey.png';
@@ -246,7 +247,7 @@ export const products = [
         name: 'Grace Day Sheet Mask - Collagen',
         category: 'Skincare',
         price: 'Rs 899',
-        originalPrice: 'Rs 500',
+        originalPrice: 'Rs 1000',
         stock: 40,
         description: 'Grace Day sheet masks are Korean skincare products featuring a soft cellulose sheet infused with various essences (like Snail, Collagen, Hyaluronic Acid, Honey, Tea Tree, Rose, or Aloe) to deliver targeted hydration, nourishment, soothing, or anti-aging benefits, leaving skin soft, glowing, elastic, and revitalized for all skin types, often with a focus on natural ingredients and a gentle feel.',
         howToUse: '1. Clean your face with face wash and pat dry.\n2. Open the mask and gently place it on your face, aligning eyes, nose, and lips.\n3. Leave it on for 15–20 minutes.\n4. Remove the mask and gently massage the remaining serum into your skin.\n5. Do not wash your face after.\n6. Finish with moisturizer if needed.',
@@ -257,7 +258,7 @@ export const products = [
         name: 'Grace Day Sheet Mask - Aloe Vera',
         category: 'Skincare',
         price: 'Rs 899',
-        originalPrice: 'Rs 500',
+        originalPrice: 'Rs 1000',
         stock: 35,
         skinType: 'Sensitive & Dry',
         benefits: 'Soothing, cooling, moisturizing',
@@ -270,7 +271,7 @@ export const products = [
         name: 'Grace Day Sheet Mask - Tea Tree',
         category: 'Skincare',
         price: 'Rs 899',
-        originalPrice: 'Rs 500',
+        originalPrice: 'Rs 1000',
         stock: 30,
         skinType: 'Oily & Acne-Prone',
         benefits: 'Anti-bacterial, calming, oil-control',
@@ -283,7 +284,7 @@ export const products = [
         name: 'Grace Day Sheet Mask - Honey',
         category: 'Skincare',
         price: 'Rs 899',
-        originalPrice: 'Rs 500',
+        originalPrice: 'Rs 1000',
         stock: 25,
         skinType: 'Dry Skin',
         benefits: 'Nourishing, glowing, softening',
@@ -296,7 +297,7 @@ export const products = [
         name: 'Grace Day Sheet Mask - Pomegranate',
         category: 'Skincare',
         price: 'Rs 899',
-        originalPrice: 'Rs 500',
+        originalPrice: 'Rs 1000',
         stock: 20,
         skinType: 'Aging Skin',
         benefits: 'Firming, revitalizing, antioxidant',
@@ -309,7 +310,7 @@ export const products = [
         name: 'Grace Day Sheet Mask - Rose',
         category: 'Skincare',
         price: 'Rs 899',
-        originalPrice: 'Rs 500',
+        originalPrice: 'Rs 1000',
         stock: 15,
         skinType: 'Dull Skin',
         benefits: 'Brightening, hydrating, calming',
@@ -322,7 +323,7 @@ export const products = [
         name: 'Grace Day Sheet Mask - Vitamin C',
         category: 'Skincare',
         price: 'Rs 899',
-        originalPrice: 'Rs 500',
+        originalPrice: 'Rs 1000',
         stock: 12,
         skinType: 'Tired Skin',
         benefits: 'Instant radiance, brightening',
@@ -335,7 +336,7 @@ export const products = [
         name: 'Grace Day Sheet Mask - Cucumber',
         category: 'Skincare',
         price: 'Rs 899',
-        originalPrice: 'Rs 500',
+        originalPrice: 'Rs 1000',
         stock: 18,
         skinType: 'All Skin Types',
         benefits: 'Cooling, hydrating, refreshing',
@@ -348,7 +349,7 @@ export const products = [
         name: 'Grace Day Sheet Mask - Hyaluronic Acid',
         category: 'Skincare',
         price: 'Rs 899',
-        originalPrice: 'Rs 500',
+        originalPrice: 'Rs 1000',
         stock: 22,
         skinType: 'Very Dry Skin',
         benefits: 'Intense hydration, plumping',
