@@ -14,7 +14,7 @@ const categories = [
 
 const CategorySection = () => {
   return (
-    <section className="category-section">
+    <section className="category-section" id="categories">
       <h2 className="category-title" id='shop'>Shop By Categories</h2>
       <div className="category-grid">
         {categories.map((cat) => (
