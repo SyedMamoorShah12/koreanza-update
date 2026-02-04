@@ -99,11 +99,11 @@ const TrendingItems = () => {
   return (
     <section className="trending-container">
       {/* ROW 1 */}
-      <h2 className="section-title">Trending items</h2>
+      <h2 className="section-title heading-line">Trending items</h2>
       <ProductGrid products={trendingProducts} />
 
       {/* ROW 2 */}
-      <h2 className="section-title second">Top beauty products</h2>
+      <h2 className="section-title second heading-line">Top beauty products</h2>
       <ProductGrid products={topBeautyProducts} />
     </section>
   );

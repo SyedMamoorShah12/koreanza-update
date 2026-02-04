@@ -32,7 +32,6 @@ const Testimonials = () => {
       <div className="testimonial-header">
         <span className="testimonial-subtitle">Testimonials</span>
         <h2 className="testimonial-title">What Our Customers Say</h2>
-        <div className="title-underline"></div>
       </div>
 
       <div className="testimonial-grid">

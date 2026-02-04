@@ -31,3 +31,74 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+/* Global Heading Lines Standardized */
+.heading-line {
+    position: relative;
+    display: table !important;
+    /* display: table allows margin: auto to work with dynamic width */
+    width: auto;
+    margin: 40px auto !important;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.heading-line::before,
+.heading-line::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 3px;
+    background-color: #d4a373;
+    /* Peach color */
+}
+
+.heading-line::before {
+    left: -260px;
+}
+
+.heading-line::after {
+    right: -260px;
+}
+
+@media (max-width: 900px) {
+
+    .heading-line::before,
+    .heading-line::after {
+        width: 100px;
+    }
+
+    .heading-line::before {
+        left: -110px;
+    }
+
+    .heading-line::after {
+        right: -110px;
+    }
+}
+
+@media (max-width: 600px) {
+    .heading-line {
+        padding: 0 10px;
+        margin: 30px auto !important;
+        font-size: 21px !important;
+        /* Increased by 5px (was 16px) */
+    }
+
+    .heading-line::before,
+    .heading-line::after {
+        width: 45px;
+    }
+
+    .heading-line::before {
+        left: -60px;
+        /* Adjusted for larger text */
+    }
+
+    .heading-line::after {
+        right: -60px;
+        /* Adjusted for larger text */
+    }
+}

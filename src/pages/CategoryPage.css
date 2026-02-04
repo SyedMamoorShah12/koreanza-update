@@ -79,7 +79,8 @@
 .product-card {
     background: transparent;
     transition: transform 0.3s ease;
-    /* Removed border and shadow for cleaner look matching reference */
+    border: 1px solid #0000001a;
+    border-radius: 8px;
 }
 
 /* .product-card:hover {
@@ -116,8 +117,6 @@
     justify-content: space-between;
     padding: 10px 14px;
     /* Match front page padding */
-    background-color: #f2f2f2;
-    /* Match front page grey */
     margin-top: 10px;
     /* Add spacing from image */
 }

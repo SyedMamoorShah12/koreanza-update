@@ -4,14 +4,23 @@
   background-color: #fff;
 }
 
+/* Heading */
 .category-title {
-  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+  font-size: 26px;
+  /* Match .section-title */
   font-weight: 600;
   margin-bottom: 50px;
-  color: var(--peach-text);
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 28px;
+  color: #d4a373;
+  /* Fallback peach color */
+  font-family: "Segoe UI", Roboto, sans-serif;
 }
 
+/* Using global heading-line from index.css */
+
+/* Category grid */
 .category-grid {
   display: flex;
   justify-content: center;
@@ -19,6 +28,7 @@
   gap: 40px;
 }
 
+/* Card */
 .category-card {
   display: flex;
   flex-direction: column;
@@ -31,6 +41,7 @@
   transform: translateY(-5px);
 }
 
+/* Image wrapper */
 .category-image-wrapper {
   width: 220px;
   height: 220px;
@@ -46,16 +57,17 @@
   object-fit: cover;
 }
 
+/* Category name */
 .category-name {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--peach-text); /* deep neutral for premium look */
+  color: var(--peach-text);
   font-family: "Poppins", "Inter", system-ui, -apple-system, sans-serif;
   letter-spacing: 0.3px;
   text-transform: capitalize;
 }
-/* Mobile Responsiveness */
-/* Mobile Responsiveness */
+
+/* Tablet */
 @media (max-width: 900px) {
   .category-grid {
     gap: 30px;
@@ -67,6 +79,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 600px) {
   .category-section {
     padding: 40px 20px;
@@ -74,12 +87,10 @@
 
   .category-grid {
     gap: 25px;
-    /* Ensure only 2 per row if space permits, or stack */
     justify-content: center;
   }
 
   .category-card {
-    /* Optional: constrain width so they fit 2 in a row */
     width: 140px;
   }
 
@@ -89,7 +100,19 @@
     margin-bottom: 10px;
   }
 
-  .category-name {
-    font-size: 1rem;
+  .category-title {
+    font-size: 25px;
+    /* Increased by 5px (was 20px) */
+    margin-bottom: 30px;
   }
+
+  .category-name {
+    font-size: 14px;
+    /* Slightly larger as requested */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Global heading-line handles mobile responsiveness */
 }

@@ -15,7 +15,7 @@ const categories = [
 const CategorySection = () => {
   return (
     <section className="category-section" id="categories">
-      <h2 className="category-title" id='shop'>Shop By Categories</h2>
+      <h2 className="category-title heading-line" id='shop'>Shop By Categories</h2>
       <div className="category-grid">
         {categories.map((cat) => (
           <Link to={`/category/${cat.name}`} key={cat.id} className="category-card" style={{ textDecoration: 'none', color: 'inherit' }}>

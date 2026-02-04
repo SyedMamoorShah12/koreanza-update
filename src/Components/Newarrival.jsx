@@ -100,7 +100,7 @@ const Newarrival = () => {
       <ProductGrid products={trendingProducts} /> */}
 
       {/* ROW 2 */}
-      <h2 className="section-title second">All products</h2>
+      <h2 className="section-title second heading-line">All products</h2>
       <ProductGrid products={topBeautyProducts} />
     </section>
   );
