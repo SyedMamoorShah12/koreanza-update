@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Heart } from "lucide-react";
 import { useShop } from "../context/ShopContext";
 import "./TrendingItems.css";
 import "./Newarrival.css";
@@ -35,57 +36,54 @@ const ProductGrid = ({ products }) => {
     <div className="product-grid">
       {products.map((product) => (
         <div key={product.id} className="product-card">
-          <Link to={`/product/${product.id}`} className="product-card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div className="product-image-wrapper">
-              <img src={product.image} alt={product.name} className="product-image" />
-            </div>
-          </Link>
+          <div className="product-image-container-premium">
+            <Link to={`/product/${product.id}`} className="product-card-link-premium">
+              <img src={product.image} alt={product.name} className="product-image-premium" />
+            </Link>
 
-          <div className="action-bar">
-            {/* Wishlist */}
+            {/* Wishlist Overlay */}
             <button
-              className="icon-btn"
+              className="wishlist-btn-premium"
               onClick={(e) => {
                 e.stopPropagation();
                 addToWishlist(product);
               }}
               style={{ color: isInWishlist(product.id) ? 'red' : 'inherit' }}
             >
-              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill={isInWishlist(product.id) ? "red" : "none"} strokeWidth="2">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-              </svg>
+              <Heart size={20} fill={isInWishlist(product.id) ? "red" : "none"} />
             </button>
 
-            {/* Cart */}
-            <button
-              className="icon-btn"
-              onClick={(e) => {
-                e.stopPropagation();
-                addToCart(product);
-              }}
-            >
-              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" strokeWidth="2">
-                <circle cx="9" cy="21" r="1" />
-                <circle cx="20" cy="21" r="1" />
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-              </svg>
-            </button>
+            {/* New Badge (optional/simulated for now) */}
+            <span className="badge-new">New</span>
           </div>
 
-          <Link to={`/product/${product.id}`} className="product-card-link" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <div className="product-info2">
-              <h3 className="product-name">{product.name}</h3>
-              <p className="product-price">
+          <div className="product-details-premium">
+            <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <h3 className="product-name-premium">{product.name}</h3>
+              <p className="product-desc-premium">Hydrating & Glowing</p> {/* Static for now as description isn't in this prop, using placeholder or could be passed */}
+            </Link>
+
+            <div className="price-row-premium">
+              <p className="product-price-premium">
                 Rs. {Number(product.price).toLocaleString()}
               </p>
-
-              <div className="stars">
+              <div className="stars-premium">
                 {"★★★★★".split("").map((_, i) => (
                   <span key={i}>★</span>
                 ))}
               </div>
             </div>
-          </Link>
+
+            <button
+              className="add-to-cart-btn-premium"
+              onClick={(e) => {
+                e.stopPropagation();
+                addToCart(product);
+              }}
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
       ))}
     </div>
@@ -100,7 +98,7 @@ const Newarrival = () => {
       <ProductGrid products={trendingProducts} /> */}
 
       {/* ROW 2 */}
-      <h2 className="section-title second heading-line">All products</h2>
+      <h2 className="section-title second heading-line">All Products</h2>
       <ProductGrid products={topBeautyProducts} />
     </section>
   );

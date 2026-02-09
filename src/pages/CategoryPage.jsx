@@ -27,55 +27,72 @@ const CategoryPage = () => {
                 <div className="products-grid">
                     {categoryProducts.map((product) => (
                         <div key={product.id} className="product-card-wrapper">
-                            <Link to={`/product/${product.id}`} className="product-card-link">
-                                <div className="product-card">
-                                    <div className="product-image-container">
-                                        <img src={product.img} alt={product.name} />
-                                    </div>
-                                    <div className="product-actions">
-                                        <button
-                                            className="icon-btn"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                addToWishlist(product);
-                                            }}
-                                        >
-                                            <Heart
-                                                size={20}
-                                                fill={isInWishlist(product.id) ? "red" : "none"}
-                                                color={isInWishlist(product.id) ? "red" : "#333"}
-                                            />
-                                        </button>
-                                        <button
-                                            className="icon-btn"
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                addToCart(product);
-                                            }}
-                                        >
-                                            <ShoppingCart size={20} />
-                                        </button>
-                                    </div>
-                                    <div className="product-info2">
-                                        <h3 className="product-name">{product.name}</h3>
-                                        {product.benefits && <p className="product-benefits">{product.benefits}</p>}
-                                        <div className="product-meta">
-                                            {product.skinType && <span className="meta-tag">{product.skinType}</span>}
-                                            {product.finish && <span className="meta-tag">{product.finish}</span>}
-                                        </div>
-                                        <p className="product-price">
-                                            <span className="price-label">Price</span> {product.price}
-                                        </p>
-                                        <div className="product-rating">
-                                            <Star size={16} fill="#FFD700" color="#FFD700" />
-                                            <Star size={16} fill="#FFD700" color="#FFD700" />
-                                            <Star size={16} fill="#FFD700" color="#FFD700" />
-                                            <Star size={16} fill="#FFD700" color="#FFD700" />
-                                            <Star size={16} fill="#FFD700" color="#FFD700" />
-                                        </div>
+                            <div className="product-card">
+                                <div className="product-image-container-premium">
+                                    <Link to={`/product/${product.id}`} className="product-card-link-premium">
+                                        <img src={product.img} alt={product.name} className="product-image-premium" />
+                                    </Link>
+
+                                    {/* Wishlist Overlay */}
+                                    <button
+                                        className="wishlist-btn-premium"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            e.preventDefault();
+                                            addToWishlist(product);
+                                        }}
+                                        style={{ color: isInWishlist(product.id) ? 'red' : 'inherit' }}
+                                    >
+                                        <Heart
+                                            size={18}
+                                            fill={isInWishlist(product.id) ? "red" : "none"}
+                                            color={isInWishlist(product.id) ? "red" : "currentColor"}
+                                        />
+                                    </button>
+
+                                    {/* Badges */}
+                                    <div className="card-badges">
+                                        {product.skinType && <span className="badge-new">{product.skinType}</span>}
+                                        {/* <span className="badge-new">New</span> */}
                                     </div>
                                 </div>
-                            </Link>
+
+                                <div className="product-details-premium">
+                                    <Link to={`/product/${product.id}`} className="product-link-rest" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                        <h3 className="product-name-premium">{product.name}</h3>
+
+                                        {/* Benefits/Description */}
+                                        {product.benefits && <p className="product-desc-premium">{product.benefits}</p>}
+
+                                        {/* Meta Tags (Finish etc) */}
+                                        {/* {product.finish && <span className="meta-tag-premium">{product.finish}</span>} */}
+                                    </Link>
+
+                                    <div className="price-row-premium">
+                                        <p className="product-price-premium">
+                                            {/* <span className="price-label">Price</span>  */}
+                                            {product.price}
+                                        </p>
+                                        <div className="stars-premium">
+                                            <Star size={14} fill="#FFD700" color="#FFD700" />
+                                            <Star size={14} fill="#FFD700" color="#FFD700" />
+                                            <Star size={14} fill="#FFD700" color="#FFD700" />
+                                            <Star size={14} fill="#FFD700" color="#FFD700" />
+                                            <Star size={14} fill="#FFD700" color="#FFD700" />
+                                        </div>
+                                    </div>
+
+                                    <button
+                                        className="add-to-cart-btn-premium"
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            addToCart(product);
+                                        }}
+                                    >
+                                        Add to Cart
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>

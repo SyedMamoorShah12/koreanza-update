@@ -24,76 +24,81 @@ export default function App() {
     <>
       <ScrollToTop />
       <Navbar />
-      <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored" />
+      <ToastContainer position="bottom-right" autoClose={3000}
+      hideProgressBar={false} 
+      newestOnTop closeOnClick rtl={false} 
+      pauseOnFocusLoss draggable pauseOnHover theme="colored" />
 
-      <Routes>
-        {/* HOME */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <CategorySection />
-              <TrendingItems />
-              <Newarrival />
-              <Testimonials />
-              <Footer />
-            </>
-          }
-        />
+      <div style={{ paddingTop: '80px' }}>
+        <Routes>
+          {/* HOME */}
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <CategorySection />
+                <TrendingItems />
+                <Newarrival />
+                <Testimonials />
+                <Footer />
+              </>
+            }
+          />
 
-        {/* ABOUT */}
-        <Route
-          path="/about"
-          element={
-            <>
-              <About />
-              <Footer />
-            </>
-          }
-        />
+          {/* ABOUT */}
+          <Route
+            path="/about"
+            element={
+              <>
+                <About />
+                <Footer />
+              </>
+            }
+          />
 
-        {/* CONTACT */}
-        <Route
-          path="/contact"
-          element={
-            <>
-              <ContactPage />
-              <Footer />
-            </>
-          }
-        />
+          {/* CONTACT */}
+          <Route
+            path="/contact"
+            element={
+              <>
+                <ContactPage />
+                <Footer />
+              </>
+            }
+          />
 
-        {/* WISHLIST */}
-        <Route
-          path="/heart"
-          element={
-            <>
-              <Wishlist />
-              <Footer />
-            </>
-          }
-        />
+          {/* WISHLIST */}
+          <Route
+            path="/heart"
+            element={
+              <>
+                <Wishlist />
+                <Footer />
+              </>
+            }
+          />
 
-        {/* CART */}
-        <Route
-          path="/cart"
-          element={
-            <>
-              <Cart />
-              <Footer />
-            </>
-          }
-        />
+          {/* CART */}
+          <Route
+            path="/cart"
+            element={
+              <>
+                <Cart />
+                <Footer />
+              </>
+            }
+          />
 
-        {/* LOGIN / AUTH */}
-        <Route path="/auth" element={<Auth />} />
+          {/* LOGIN / AUTH */}
+          <Route path="/auth" element={<Auth />} />
 
-        {/* SHOP ROUTES */}
-        <Route path="/category/:categoryName" element={<><CategoryPage /><Footer /></>} />
-        <Route path="/product/:productId" element={<><ProductDetailsPage /><Footer /></>} />
-        <Route path="/checkout" element={<><Checkout /><Footer /></>} />
-      </Routes>
+          {/* SHOP ROUTES */}
+          <Route path="/category/:categoryName" element={<><CategoryPage /><Footer /></>} />
+          <Route path="/product/:productId" element={<><ProductDetailsPage /><Footer /></>} />
+          <Route path="/checkout" element={<><Checkout /><Footer /></>} />
+        </Routes>
+      </div>
     </>
   );
 }

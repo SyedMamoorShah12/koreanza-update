@@ -1,5 +1,7 @@
 import React from 'react';
+import { Heart } from 'lucide-react';
 import './Wishlist.css';
+import '../Components/TrendingItems.css'; // Import premium styles
 import { useShop } from '../context/ShopContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -34,28 +36,44 @@ const Wishlist = () => {
         <div className="wishlist-grid">
           {wishlistItems.map((product) => (
             <div key={product.id} className="product-card">
-              <div className="image-container">
-                <img src={product.img || product.image} alt={product.name} />
-              </div>
-              <div className="product-info-wishlist" style={{ padding: '10px' }}>
-                <h3>{product.name}</h3>
-                <p>Rs {product.price}</p>
-              </div>
-              <div className="card-actions">
+              <div className="product-image-container-premium">
+                <div className="product-card-link-premium">
+                  <img src={product.img || product.image} alt={product.name} className="product-image-premium" />
+                </div>
+
+                {/* Remove Button (Overlay) */}
                 <button
-                  className="icon-btn heart-btn"
-                  onClick={() => handleRemove(product)}
+                  className="wishlist-btn-premium"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleRemove(product);
+                  }}
                   title="Remove from Wishlist"
+                  style={{ color: 'red' }}
                 >
-                  <span className="heart-icon">💔</span>
+                  <Heart size={20} fill="red" color="red" />
                 </button>
+              </div>
+
+              <div className="product-details-premium">
+                <div style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <h3 className="product-name-premium">{product.name}</h3>
+                </div>
+
+                <div className="price-row-premium">
+                  <p className="product-price-premium">
+                    Rs {product.price}
+                  </p>
+                </div>
+
                 <button
-                  className="icon-btn cart-btn"
-                  onClick={() => handleAddToCart(product)}
-                  title="Add to Cart"
+                  className="add-to-cart-btn-premium"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleAddToCart(product);
+                  }}
                 >
-                  <span className="bag-icon">🛍️</span>
-                  <span className="plus-sign">+</span>
+                  Add to Cart
                 </button>
               </div>
             </div>

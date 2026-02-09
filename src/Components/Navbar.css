@@ -3,17 +3,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
-  background-color: #fff;
-  font-family: 'Inter', sans-serif;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  position: relative;
+  padding: 0 5%;
+  background-color: rgba(255, 255, 255, 0.95);
+  /* Semi-transparent */
+  backdrop-filter: blur(12px);
+  /* Glassmorphism */
+  font-family: var(--font-premium, 'Inter', sans-serif);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  /* Softer shadow */
+  position: fixed;
+  /* Make fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  height: 70px;
+  height: 80px;
+  /* Slightly taller for luxury spacing */
+  transition: all 0.3s ease;
 }
 
-/* Logo */
 /* Logo */
 .nav-logo {
   display: flex;
@@ -23,17 +32,9 @@
   text-decoration: none;
 }
 
-.logo-text {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #8b0000;
-  letter-spacing: 2px;
-  font-family: 'Inter', sans-serif;
-}
-
 .logo-img {
-  height: 60px;
-  /* Optimized for visibility within 70px navbar */
+  height: 50px;
+  /* Refined size */
   width: auto;
   object-fit: contain;
 }
@@ -50,16 +51,38 @@
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 30px;
+  gap: 40px;
+  /* Increased spacing */
   align-items: center;
 }
 
 .nav-links li a {
   text-decoration: none;
   color: #333;
-  font-size: 1rem;
-  transition: color 0.3s;
+  font-size: 0.85rem;
+  /* Smaller, sharper */
+  text-transform: uppercase;
+  /* Luxury standard */
+  letter-spacing: 0.1em;
+  /* Wide tracking */
   font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: #d4a373;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
 }
 
 .nav-links li a:hover {
@@ -77,26 +100,25 @@
   display: flex;
   align-items: center;
   width: 20px;
-  /* start width equals icon size */
   transition: width 0.4s ease;
 }
 
 .search-wrapper.active {
-  width: 180px;
-  /* expanded width */
+  width: 200px;
 }
 
 /* Search input */
 .search-input {
   border: none;
   outline: none;
-  background: #f2f2f2;
+  background: #f7f3f0;
+  /* Ultra light beige */
   border-radius: 20px;
-  padding: 5px 10px 5px 30px;
-  /* space for icon */
+  padding: 8px 15px 8px 35px;
   width: 0;
   opacity: 0;
   transition: width 0.4s ease, opacity 0.4s ease;
+  font-size: 0.9rem;
 }
 
 .search-wrapper.active .search-input {
@@ -109,20 +131,20 @@
   position: absolute;
   left: 0;
   cursor: pointer;
-  color: #555;
+  color: #444;
   transition: transform 0.4s ease, color 0.3s;
 }
 
 .search-wrapper.active .search-icon {
-  transform: translateX(160px);
-  /* icon slides right */
+  transform: translateX(170px);
   color: #d4a373;
 }
 
 /* Right-side icons */
 .nav-icons {
   display: flex;
-  gap: 20px;
+  gap: 25px;
+  /* More space */
   align-items: center;
   z-index: 1002;
 }
@@ -130,12 +152,16 @@
 .icon-wrapper {
   position: relative;
   cursor: pointer;
-  color: #333;
-  transition: color 0.3s;
+  color: #222;
+  /* Darker grey */
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 .icon-wrapper:hover {
   color: #d4a373;
+  transform: translateY(-2px);
 }
 
 .badge .dot {
@@ -144,21 +170,29 @@
   right: -4px;
   height: 8px;
   width: 8px;
-  background-color: #e67e22;
+  background-color: #d4a373;
+  /* Peach accent */
   border-radius: 50%;
+  border: 2px solid white;
+  /* Ring effect */
 }
 
 /* ---------------- Responsive ---------------- */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 10px 5%;
+    height: 70px;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
     order: 1;
-    /* Left side */
   }
 
   .nav-logo {
     order: 2;
-    /* Center or right */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -166,33 +200,28 @@
 
   .nav-icons {
     order: 3;
-    /* Right side */
+    gap: 15px;
   }
 
   .nav-links {
     position: fixed;
-    /* Fixed to stay on screen */
     top: 70px;
-    /* Reverted to match original navbar height */
-    /* Below navbar */
+    /* Navbar height */
     left: 0;
-    width: 250px;
-    /* Fixed side width */
+    width: 280px;
     height: calc(100vh - 70px);
-    background-color: #f9f9f9;
-    /* Distinct background */
+    background-color: #ffffff;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 40px;
+    padding-top: 60px;
     align-items: flex-start;
-    padding-left: 20px;
-    gap: 25px;
+    padding-left: 30px;
+    gap: 30px;
     transform: translateX(-100%);
-    /* Slide from left */
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1001;
-    border-right: 1px solid #ddd;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
   }
 
   .nav-links.active {
@@ -200,37 +229,35 @@
   }
 
   .nav-links li a {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 500;
   }
 
-  /* Adjust search in mobile menu */
+  /* Search for mobile */
   .search-wrapper {
-    width: 250px;
-    /* Fixed width for mobile entry */
-    border: 1px solid #eee;
-    border-radius: 25px;
+    width: 220px;
+    background: #f9f9f9;
     padding: 5px;
+    border-radius: 4px;
   }
 
   .search-wrapper.active {
-    width: 250px;
+    width: 220px;
   }
 
   .search-input {
     width: 100%;
     opacity: 1;
     background: transparent;
+    padding-left: 10px;
   }
 
   .search-icon {
     display: none;
-    /* Hide icon inside input, maybe use a button instead or keep it simply as input */
   }
 
-  /* Or simplify search for mobile */
   .search-link {
     display: none;
-    /* Often cleaner to hide search in simple mobile menu or make it a separate top-level item */
+    /* Hide for now per previous code */
   }
 }

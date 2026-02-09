@@ -18,31 +18,46 @@
 /* Image Section */
 .product-image-container {
     position: relative;
-    border: 1px solid #EAEAEA;
-    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    /* Limit width */
+    aspect-ratio: 1/1;
+    /* Square */
+    background: #ffffff;
+    border-radius: 20px;
+    /* Match --card-radius */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    /* Match --card-shadow */
     display: flex;
     justify-content: center;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
     align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .wishlist-btn-large {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    color: #000;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .main-product-image {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
+    mix-blend-mode: multiply;
 }
 
 /* Product Info Section */
