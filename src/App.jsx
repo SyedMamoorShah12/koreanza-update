@@ -15,6 +15,7 @@ import Auth from "./pages/Auth";
 import CategoryPage from "./pages/CategoryPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import Checkout from "./pages/Checkout";
+import WhatsAppButton from "./Components/WhatsAppButton";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ScrollToTop from "./Components/ScrollToTop";
@@ -24,10 +25,11 @@ export default function App() {
     <>
       <ScrollToTop />
       <Navbar />
+      <WhatsAppButton />
       <ToastContainer position="bottom-right" autoClose={3000}
-      hideProgressBar={false} 
-      newestOnTop closeOnClick rtl={false} 
-      pauseOnFocusLoss draggable pauseOnHover theme="colored" />
+        hideProgressBar={false}
+        newestOnTop closeOnClick rtl={false}
+        pauseOnFocusLoss draggable pauseOnHover theme="colored" />
 
       <div style={{ paddingTop: '80px' }}>
         <Routes>

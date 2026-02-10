@@ -39,12 +39,44 @@
   object-fit: contain;
 }
 
-/* Menu Toggle (Hamburger) */
-.menu-toggle {
+/* Custom Animated Hamburger Menu */
+.hamburger-menu {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
   cursor: pointer;
-  color: #333;
   z-index: 1002;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  transform: scale(1.05);
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform-origin: center;
+}
+
+/* Hamburger Animation to X */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Nav links */
@@ -186,8 +218,8 @@
 }
 
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
+  .hamburger-menu {
+    display: flex;
     order: 1;
   }
 
@@ -203,42 +235,134 @@
     gap: 15px;
   }
 
+  /* Premium Mobile Menu Panel */
   .nav-links {
     position: fixed;
     top: 70px;
-    /* Navbar height */
     left: 0;
-    width: 280px;
+    width: 75%;
+    max-width: 320px;
     height: calc(100vh - 70px);
-    background-color: #ffffff;
+    background: linear-gradient(135deg, #FAF8F6 0%, #F5F2EE 100%);
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 60px;
+    padding: 50px 0 30px 40px;
     align-items: flex-start;
-    padding-left: 30px;
-    gap: 30px;
+    gap: 45px;
     transform: translateX(-100%);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
     z-index: 1001;
-    border-right: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.05);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    box-shadow: 8px 0 40px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
   }
 
   .nav-links.active {
     transform: translateX(0);
   }
 
+  /* Staggered Menu Item Animation */
+  .nav-links.active li {
+    animation: slideInFade 0.5s ease forwards;
+  }
+
+  .nav-links.active li:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .nav-links.active li:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .nav-links.active li:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .nav-links.active li:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+
+  @keyframes slideInFade {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Menu Items Styling */
+  .nav-links li {
+    opacity: 0;
+    width: 100%;
+    padding-right: 40px;
+  }
+
   .nav-links li a {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 8px 0;
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  /* Premium Hover Effect */
+  .nav-links li a:hover {
+    color: #d4a373;
+    transform: translateX(8px);
+  }
+
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, #d4a373 0%, transparent 100%);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links li a:hover::after {
+    width: 60%;
+  }
+
+  /* Backdrop Overlay */
+  .menu-backdrop {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   /* Search for mobile */
   .search-wrapper {
     width: 220px;
-    background: #f9f9f9;
-    padding: 5px;
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 8px 12px;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
   }
 
   .search-wrapper.active {
@@ -250,6 +374,7 @@
     opacity: 1;
     background: transparent;
     padding-left: 10px;
+    font-size: 0.95rem;
   }
 
   .search-icon {

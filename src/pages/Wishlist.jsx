@@ -5,6 +5,8 @@ import '../Components/TrendingItems.css'; // Import premium styles
 import { useShop } from '../context/ShopContext';
 import { useNavigate } from 'react-router-dom';
 
+import PriceWithDiscount from '../Components/PriceWithDiscount';
+
 const Wishlist = () => {
   const { wishlistItems, addToWishlist, addToCart } = useShop();
   const navigate = useNavigate();
@@ -61,9 +63,11 @@ const Wishlist = () => {
                 </div>
 
                 <div className="price-row-premium">
-                  <p className="product-price-premium">
-                    Rs {product.price}
-                  </p>
+                  <PriceWithDiscount
+                    price={product.price}
+                    originalPrice={product.originalPrice}
+                    size="small"
+                  />
                 </div>
 
                 <button

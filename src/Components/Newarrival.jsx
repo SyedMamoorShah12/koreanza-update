@@ -4,30 +4,13 @@ import { Heart } from "lucide-react";
 import { useShop } from "../context/ShopContext";
 import "./TrendingItems.css";
 import "./Newarrival.css";
-
-// import img from "../assets/Images/img1.jpg";
-
-
-import faceWashHydroImg from "../assets/Images/skincaree/jas_perfect_facewash__2_.png";
-import glowCreamImg from "../assets/Images/face/peachmnu_glow_cream-removebg-preview.png";
-import lipSerumBlueImg from "../assets/Images/lip/cleaderm lip serum milky blue.jpg";
-import hyaluronMaskImg from "../assets/Images/skincaree/hydration.png";
-
-/* FIRST ROW */
-// const trendingProducts = [
-//   { id: 1, name: "Firming Face Cream", price: "3999", image: img },
-//   { id: 2, name: "Peachmanu", price: "3999", image: img },
-//   { id: 3, name: "CINDERELLA", price: "3999", image: img },
-//   { id: 4, name: "Cleaderm", price: "3999", image: img },
-// ];
+import { products } from "../data/products";
+import PriceWithDiscount from "./PriceWithDiscount";
 
 /* SECOND ROW */
-const topBeautyProducts = [
-  { id: 21, name: "Hyaluronic Acid Mask", price: "899", image: hyaluronMaskImg },
-  { id: 26, name: "Jas Perfect Foam - Hydro", price: "1850", image: faceWashHydroImg },
-  { id: 8, name: "Peachmanu Glow Cream", price: "3200", image: glowCreamImg },
-  { id: 10, name: "Cleaderm Lip Serum - Milky Blue", price: "1200", image: lipSerumBlueImg },
-];
+// Target IDs for "All Products" section in New Arrival
+const targetIds = [21, 26, 8, 10];
+const topBeautyProducts = products.filter(p => targetIds.includes(p.id));
 
 const ProductGrid = ({ products }) => {
   const { addToCart, addToWishlist, isInWishlist } = useShop();
@@ -38,7 +21,7 @@ const ProductGrid = ({ products }) => {
         <div key={product.id} className="product-card">
           <div className="product-image-container-premium">
             <Link to={`/product/${product.id}`} className="product-card-link-premium">
-              <img src={product.image} alt={product.name} className="product-image-premium" />
+              <img src={product.img || product.image} alt={product.name} className="product-image-premium" />
             </Link>
 
             {/* Wishlist Overlay */}
@@ -64,9 +47,11 @@ const ProductGrid = ({ products }) => {
             </Link>
 
             <div className="price-row-premium">
-              <p className="product-price-premium">
-                Rs. {Number(product.price).toLocaleString()}
-              </p>
+              <PriceWithDiscount
+                price={product.price}
+                originalPrice={product.originalPrice}
+                size="small"
+              />
               <div className="stars-premium">
                 {"★★★★★".split("").map((_, i) => (
                   <span key={i}>★</span>

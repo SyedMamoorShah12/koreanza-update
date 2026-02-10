@@ -3,34 +3,16 @@ import { Link } from "react-router-dom";
 import { Heart } from "lucide-react";
 import "./TrendingItems.css";
 import { useShop } from "../context/ShopContext";
-import facenew from '../assets/Images/face/new.jpeg';
-import img from "../assets/Images/skincaree/skincare-removebg-preview.png";
-import glowCreamImg from "../assets/Images/face/facenew3.jpeg";
-import eyeCoverImg from "../assets/Images/Eye/cover-removebg-preview.png";
-import wrinkleCreamImg from "../assets/Images/face/wrinkle_cream-removebg-preview.png";
-import foundationImg from "../assets/Images/face/peachmanu_foundation-removebg-preview.png";
-import faceWashImg from "../assets/Images/skincaree/jas_perfect_face_wash.png";
-import lipShadesImg from "../assets/Images/lip/Tag.jpg";
-import lipGlowSerumImg from "../assets/Images/lip/peachmanu glow lip serum.jpg";
-import lipnew from "../assets/Images/lip/lipnew.jpeg";
-import eyeShimmerImg from "../assets/Images/Eye/twoedit_eye_shimmer_1-removebg-preview.png";
-import faceWashCollagenImg from "../assets/Images/skincaree/jas_perfect_face_wash__2.png";
+import { products } from "../data/products";
+import PriceWithDiscount from "./PriceWithDiscount";
 
 /* FIRST ROW */
-const trendingProducts = [
-  { id: 9, name: "Firming Face Cream", price: "2999", image: wrinkleCreamImg },
-  { id: 7, name: "Peachmanu Foundation", price: "4500", image: foundationImg },
-  { id: 24, name: "Jas Perfect Foam", price: "1850", image: faceWashImg },
-  { id: 12, name: "Peachmanu Glow Lip Serum", price: "1400", image: lipGlowSerumImg },
-];
+const trendingIds = [9, 7, 24, 12];
+const trendingProducts = trendingIds.map(id => products.find(p => p.id === id)).filter(Boolean);
 
 /* SECOND ROW */
-const topBeautyProducts = [
-  { id: 30, name: "Lip Shades Palette", price: "2500", image: lipShadesImg },
-  { id: 23, name: "Jas Perfect Foam - Collagen", price: "1850", image: faceWashCollagenImg },
-  { id: 8, name: "Glow Cream", price: "3200", image: glowCreamImg },
-  { id: 5, name: "Twoedit Eye Shimmer", price: "1500", image: eyeShimmerImg },
-];
+const topBeautyIds = [30, 23, 8, 5];
+const topBeautyProducts = topBeautyIds.map(id => products.find(p => p.id === id)).filter(Boolean);
 
 const ProductGrid = ({ products }) => {
   const { addToCart, addToWishlist, isInWishlist } = useShop();
@@ -41,7 +23,7 @@ const ProductGrid = ({ products }) => {
         <div key={product.id} className="product-card">
           <div className="product-image-container-premium">
             <Link to={`/product/${product.id}`} className="product-card-link-premium">
-              <img src={product.image} alt={product.name} className="product-image-premium" />
+              <img src={product.img || product.image} alt={product.name} className="product-image-premium" />
             </Link>
 
             {/* Wishlist Overlay */}
@@ -67,9 +49,11 @@ const ProductGrid = ({ products }) => {
             </Link>
 
             <div className="price-row-premium">
-              <p className="product-price-premium">
-                Rs. {Number(product.price).toLocaleString()}
-              </p>
+              <PriceWithDiscount
+                price={product.price}
+                originalPrice={product.originalPrice}
+                size="small"
+              />
               <div className="stars-premium">
                 {"★★★★★".split("").map((_, i) => (
                   <span key={i}>★</span>

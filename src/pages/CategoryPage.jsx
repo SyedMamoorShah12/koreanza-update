@@ -6,6 +6,8 @@ import { products } from '../data/products';
 import { useShop } from '../context/ShopContext';
 import './CategoryPage.css';
 
+import PriceWithDiscount from '../Components/PriceWithDiscount';
+
 const CategoryPage = () => {
     const { categoryName } = useParams();
     const { addToCart, addToWishlist, isInWishlist } = useShop();
@@ -69,10 +71,11 @@ const CategoryPage = () => {
                                     </Link>
 
                                     <div className="price-row-premium">
-                                        <p className="product-price-premium">
-                                            {/* <span className="price-label">Price</span>  */}
-                                            {product.price}
-                                        </p>
+                                        <PriceWithDiscount
+                                            price={product.price}
+                                            originalPrice={product.originalPrice || product.originalPrice}
+                                            size="small"
+                                        />
                                         <div className="stars-premium">
                                             <Star size={14} fill="#FFD700" color="#FFD700" />
                                             <Star size={14} fill="#FFD700" color="#FFD700" />

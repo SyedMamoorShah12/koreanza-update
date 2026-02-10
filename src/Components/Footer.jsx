@@ -70,7 +70,7 @@ const Footer = () => {
             <ul>
               <li>+92 310 5608442</li>
               <li>koreanzaa@gmail.com</li>
-              <li>Pakistan</li>
+              <li>Peshawar , Pakistan</li>
             </ul>
           </div>
         </div>

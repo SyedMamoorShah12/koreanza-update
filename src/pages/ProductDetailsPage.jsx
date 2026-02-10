@@ -5,6 +5,8 @@ import { Heart, Star, ShoppingCart, Minus, Plus } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
 import './ProductDetailsPage.css';
 
+import PriceWithDiscount from '../Components/PriceWithDiscount';
+
 const ProductDetailsPage = () => {
     const { productId } = useParams();
     const navigate = useNavigate();
@@ -58,10 +60,12 @@ const ProductDetailsPage = () => {
 
                     <div className="product-price-row">
                         <span className="price-label">Price</span>
-                        {product.originalPrice && (
-                            <span className="original-price">{product.originalPrice}</span>
-                        )}
-                        <span className="price-value">{product.price}</span>
+                        <PriceWithDiscount
+                            price={product.price}
+                            originalPrice={product.originalPrice}
+                            size="large"
+                            align="left"
+                        />
                     </div>
 
                     <div className="product-rating">
@@ -191,11 +195,11 @@ const ProductDetailsPage = () => {
                             <div className="pairing-info">
                                 <h3>{item.name}</h3>
                                 <div className="pairing-price-row">
-                                    <span className="price-label">Price</span>
-                                    {item.originalPrice && (
-                                        <span className="original-price" style={{ textDecoration: 'line-through', color: '#999', fontSize: '0.8em', marginRight: '5px' }}>{item.originalPrice}</span>
-                                    )}
-                                    <span className="price-value">{item.price}</span>
+                                    <PriceWithDiscount
+                                        price={item.price}
+                                        originalPrice={item.originalPrice}
+                                        size="small"
+                                    />
                                 </div>
                                 <div className="pairing-rating">
                                     {[1, 2, 3, 4, 5].map((star) => (
