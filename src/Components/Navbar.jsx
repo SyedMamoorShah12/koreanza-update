@@ -4,7 +4,7 @@ import { Search, User, Heart, ShoppingCart } from "lucide-react";
 import "./Navbar.css";
 
 import { useShop } from "../context/ShopContext";
-import logo from "../assets/Images/koreanza_logo.jpg";
+import logo from "../assets/Images/logo.png";
 
 const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
